@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="footwear.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Customized Footwear System</title>
+  </head>
+  <body>
+    <style>
+      .navbar .fa-shopping-cart {
+        position: relative;
+        font-size: 20px;
+        color: black;
+      }
+    
+      /* Cart count badge styling */
+      #cart-count {
+        position: absolute;
+        top: -2px;
+        right: -12px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        font-size: 12px;
+        font-weight: bold;
+         /* Initially hidden */
+      }
+    </style>
+    <header>
+      <div id="menu-bar" class="fa fa-bars"></div>
+      <a href="#" class="logo"
+        ><img src="img/logo.png" alt="error" />
+        <p>Customized Footwear System</p></a
+      >
+      <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#product">Product</a>
+        <a href="#customize">Customize</a>
+        <a href="#featured">Featured</a>
+        <a href="#news">News</a>
+        <a href="#cart" class="fa fa-shopping-cart" title="View Cart">
+          <span id="cart-count">0</span>
+        </a>
+        <button class="btn" onclick="openLoginModal()">Login</button>
+        <button class="btn" onclick="openSignupModal()">Signup</button>
+        <div id="profile" style=" margin-top: 22px;display:flex; align-items: center;">
+          <div
+            
+          >
+            <!-- <p id="profileInitials" style="margin: 0">U</p> -->
+            <!-- Placeholder for user's initials -->
+          </div>
+          <button class="b" onclick="logout()">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email" required oninput="this.value = this.value.toLowerCase()" />
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Password"
+          required
+        />
+        <button class="b" onclick="handleLogin()">Login</button>
+        <p>
+          Don't have an account?
+          <button class="b" onclick="openSignupModal()">Sign Up</button>
+        </p>
+      </div>
+    </div>
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeSignupModal()">&times;</span>
+        <h2>Sign Up</h2>
+        <input type="email" id="signup-email" placeholder="Email" required oninput="this.value = this.value.toLowerCase()" />
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          id="signup-confirm-password"
+          placeholder="Confirm Password"
+          required
+        />
+        <button class="b" onclick="handleSignup()">Sign Up</button>
+        <p>
+          Already have an account?
+          <button class="b" onclick="openLoginModal()">Login</button>
+        </p>
+      </div>
+    </div>
+    <section class="home" id="home">
+      <div class="slide-container active">
+        <div class="slide">
+          <div class="content">
+            <span>Customized Footwear for Men and Women</span>
+            <h3>Brown Metcon Loafers</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam
+              adipisci ipsa officiis Amet pariatur eaque soluta sit iure neque
+              voluptate.
+            </p>
+            <a href="#" class="btn" onclick="addCustomizedToCart()"
+              >Add to Cart</a
+            >
+          </div>
+          <div class="image">
+            <img src="img/slide/1.png" class="shoe" />
+          </div>
+        </div>
+      </div>
+      <div class="slide-container">
+        <div class="slide">
+          <div class="content">
+            <span>Customized Footwear for Men and Women</span>
+            <h3>Flat sandals</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam
+              adipisci ipsa officiis Amet pariatur eaque soluta sit iure neque
+              voluptate.
+            </p>
+            <a href="#" class="btn" onclick="addCustomizedToCart()"
+              >Add to Cart</a
+            >
+          </div>
+          <div class="image">
+            <img src="img/slide/2.png" class="shoe" />
+          </div>
+        </div>
+      </div>
+      <div class="slide-container">
+        <div class="slide">
+          <div class="content">
+            <span>Customized Footwear for Men and Women</span>
+            <h3>Flat Belt sandals</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam
+              adipisci ipsa officiis Amet pariatur eaque soluta sit iure neque
+              voluptate.
+            </p>
+            <a href="#" class="btn" onclick="addCustomizedToCart()"
+              >Add to Cart</a
+            >
+          </div>
+          <div class="image">
+            <img src="img/slide/3.png" class="shoe" />
+          </div>
+        </div>
+      </div>
+      <div class="slide-container">
+        <div class="slide">
+          <div class="content">
+            <span>Customized Footwear for Men and Women</span>
+            <h3>Synthetic LED Lighting Sports Shoes</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam
+              adipisci ipsa officiis Amet pariatur eaque soluta sit iure neque
+              voluptate.
+            </p>
+            <a href="#" class="btn" onclick="addCustomizedToCart()"
+              >Add to Cart</a
+            >
+          </div>
+          <div class="image">
+            <img src="img/slide/4.png" class="shoe" />
+          </div>
+        </div>
+      </div>
+      <div id="prev" class="fa fa-angle-left" onclick="prev();"></div>
+      <div id="next" class="fa fa-angle-right" onclick="next();"></div>
+    </section>
+    <section class="product" id="product">
+      <h1 class="heading">Latest <span>Products</span></h1>
+      <div class="box-container">
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fas fa-heart" title="Add to favorites"></a>
+            <a href="#" class="fas fa-share" title="Share this"></a>
+            <a href="#" class="fas fa-eye" title="View details"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/1.png" alt="" />
+            <h3>Flat belts</h3>
+            <div class="price">$200 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/2.png" alt="" />
+            <h3>Flat buckle sliders</h3>
+            <div class="price">$300 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/3.png" alt="" />
+            <h3>Pointed heels</h3>
+            <div class="price">$170 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/4.png" alt="" />
+            <h3>LED Shoes</h3>
+            <div class="price">$400 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/5.png" alt="" />
+            <h3>Flat Slides</h3>
+            <div class="price">$100 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/6.png" alt="" />
+            <h3>Stylish crocks</h3>
+            <div class="price">$350 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/7.png" alt="" />
+            <h3>High rise Shoes</h3>
+            <div class="price">$250 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/8.png" alt="" />
+            <h3>Belt sandals</h3>
+            <div class="price">$200 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fa fa-heart"></a>
+            <a href="#" class="fa fa-share"></a>
+            <a href="#" class="fa fa-eye"></a>
+          </div>
+          <div class="content">
+            <img src="img/product4/9.png" alt="" />
+            <h3>Flat and Furry slides</h3>
+            <div class="price">$200 <span>$150</span></div>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <button class="add-to-cart" onclick="addCustomizedToCart()">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="customize-section" id="customize">
+      <h1 class="heading">Customize <span>Your Footwear</span></h1>
+      <form action="#" class="customize-form">
+        <label for="color">Select Color:</label>
+        <select id="color" name="color">
+          <option value="black">Black</option>
+          <option value="white">White</option>
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+        </select>
+        <label for="leather">Select Leather Type:</label>
+        <select id="leather" name="leather">
+          <option value="genuine">Genuine Leather</option>
+          <option value="synthetic">Synthetic Leather</option>
+        </select>
+        <label for="additional-info">Additional Information:</label>
+        <input
+          type="text"
+          id="additional-info"
+          name="additional-info"
+          placeholder="Enter additional details..."
+        />
+        <label for="foot-width">Foot Width of left leg (cm):</label>
+        <input
+          type="number"
+          id="foot-width"
+          name="foot-width"
+          step="0.1"
+          required
+        />
+        <label for="foot-height">Foot Width of right leg (cm):</label>
+        <input
+          type="number"
+          id="foot-width1"
+          name="foot-width1"
+          step="0.1"
+          required
+        />
+        <label for="foot-width">Foot Height of left leg (cm):</label>
+        <input
+          type="number"
+          id="foot-height"
+          name="foot-height"
+          step="0.1"
+          required
+        />
+        <label for="foot-height">Foot Height of right leg (cm):</label>
+        <input
+          type="number"
+          id="foot-height1"
+          name="foot-height1"
+          step="0.1"
+          required
+        />
+        <label for="image-upload">Upload Image:</label>
+        <input
+          type="file"
+          id="image-upload"
+          name="image-upload"
+          accept="image/*"
+          required
+        />
+        <button type="submit" class="btn" onclick="addCustomizedToCart()">
+          Add to Cart
+        </button>
+      </form>
+    </section>
+    <section class="featured" id="featured">
+      <h1 class="heading">New <span>Product</span></h1>
+      <div class="row">
+        <div class="image-container">
+          <div class="small-image">
+            <img
+              src="img/product1/1.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+            <img
+              src="img/product1/2.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+            <img
+              src="img/product1/3.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+            <img
+              src="img/product1/4.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+          </div>
+          <div class="big-image">
+            <img
+              src="img/product1/1.png"
+              alt="New Nike Airmac Shoes"
+              class="big-image"
+            />
+          </div>
+        </div>
+        <div class="content">
+          <h3>New Customized Footwear for Prosthetic Limbs</h3>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>
+            Customized prosthetic footwear enhances comfort, support, and mobility for amputees.
+          </p>
+          <div class="price">$400 <span>$100</span></div>
+          <a href="#" class="btn" onclick="addCustomizedToCart()"
+            >Add to Cart</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="image-container">
+          <div class="small-image">
+            <img
+              src="img/product1/5.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+            <img
+              src="img/product1/6.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+            <img
+              src="img/product1/7.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+            <img
+              src="img/product1/8.png"
+              alt="New Nike Airmac Shoes"
+              class="featured-image"
+            />
+          </div>
+          <div class="big-image">
+            <img
+              src="img/product1/6.png"
+              alt="New Nike Airmac Shoes"
+              class="big-image"
+            />
+          </div>
+        </div>
+        <div class="content">
+          <h3>New Customized Footwear for Orthopedic Support Shoes</h3>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>
+            pecifically designed shoes providing support, stability, and alignment for feet, ankles, and legs to alleviate pain, discomfort, and mobility issues.
+          </p>
+          <div class="price">$300 <span>$100</span></div>
+          <a href="#" class="btn" onclick="addCustomizedToCart()"
+            >Add to Cart</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- <section class="blog" id="blog">
+        <h1 class="heading">Team <span>Weblog</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="img/team/1.png" alt="Zahra Ahmadi">
+                <h3>Zahra Ahmadi</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fugiat.</p>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="img/team/2.png" alt="Ali Mohsen">
+                <h3>Ali Mohsen</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fugiat.</p>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="img/team/3.png" alt="Saeed Rahimi">
+                <h3>Saeed Rahimi</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fugiat.</p>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="img/team/3.png" alt="Mahdi Zare">
+                <h3>Mahdi Zare</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fugiat.</p>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="news" id="news">
+      <div class="content">
+        <h3>Monthly Newsletter</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
+          fugiat.
+        </p>
+        <form action="">
+          <input
+            type="email"
+            placeholder="Please enter your email"
+            class="email"
+            required
+          />
+          <input type="submit" value="Save" class="btn" />
+        </form>
+      </div>
+    </section>
+    <!-- Cart Section -->
+    <section class="cart" id="cart">
+      <h1 class="heading">Shopping <span>Cart</span></h1>
+      <div class="cart-items"></div>
+      <div class="total-cost">Total Cost: <span id="total-cost">$0</span></div>
+      <button class="btn" onclick="checkout()">Checkout</button>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h1>About Us</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam,
+            incidunt.
+          </p>
+        </div>
+        <div class="footer-section links">
+          <h1>Quick Links</h1>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Customize</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h1>Contact Us</h1>
+          <p>Email: info@example.com</p>
+          <p>Phone: 123-456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Customized Footwear. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="footwear.js"></script>
+  </body>
+</html>
